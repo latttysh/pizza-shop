@@ -5,6 +5,11 @@ function Sort() {
   const [select, setSelect] = React.useState(0);
   const list = ['популярности', 'цене', 'алфавиту']
 
+  const onClickList = (i) =>{
+    setSelect(i);
+    setIsVisible(!isVisivle);
+  }
+
   return (
     <div className="sort">
       <div className="sort__label">
@@ -27,7 +32,7 @@ function Sort() {
         <div className="sort__popup">
           <ul>
           {list.map((name, i) => (
-            <li key={i} onClick={() => setSelect(i)} className={select === i ? 'active' : ''}>
+            <li key={i} onClick={() => onClickList(i)} className={select === i ? 'active' : ''}>
               {name}
             </li>
           ))}
