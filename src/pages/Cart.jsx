@@ -1,4 +1,4 @@
-function Cart() {
+const Cart = () => {
   return (
     <div class="cart">
       <div class="cart__top">
@@ -73,7 +73,7 @@ function Cart() {
           <span>Очистить корзину</span>
         </div>
       </div>
-      <div class="content__items">
+      <div class="cart__items">
         <div class="cart__item">
           <div class="cart__item-img">
             <img
@@ -400,6 +400,6 @@ function Cart() {
       </div>
     </div>
   );
-}
+};
 
 export default Cart;

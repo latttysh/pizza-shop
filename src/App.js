@@ -1,43 +1,22 @@
 import './scss/app.scss';
 import Header from './components/Header';
-import Categories from './components/Categories';
-import Sort from './components/Sort';
-import PizzaBlock from './components/PizzaBlock';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+import Cart from './pages/Cart';
 import React from 'react';
-import axios from 'axios';
-import Skeleton from './components/PizzaBlock/Sekeleton';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [items, setItems] = React.useState([]);
-
-  React.useEffect(() => {
-    axios.get('https://627f909abe1ccb0a4661beb7.mockapi.io/pizzas').then((res) => {
-      setItems(res.data);
-    });
-  }, []);
-
   return (
     <div className="wrapper">
       <Header />
       <div className="content">
         <div className="container">
-          <div className="content__top">
-            <Categories />
-            <Sort />
-          </div>
-          <h2 className="content__title">Все пиццы</h2>
-          <div className="content__items">
-            {items.map((obj) => (
-              <Skeleton
-                title={obj.title}
-                price={obj.price}
-                img={obj.imageUrl}
-                sizes={obj.sizes}
-                types={obj.types}
-                key={obj.id}
-              />
-            ))}
-          </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
       </div>
     </div>
