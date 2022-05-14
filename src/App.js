@@ -8,7 +8,6 @@ import pizzas from './pizzas.json';
 function App() {
   return (
     <div className="wrapper">
-      {console.log(pizzas)}
       <Header />
       <div className="content">
         <div className="container">
@@ -25,6 +24,7 @@ function App() {
                 img={obj.imageUrl}
                 sizes={obj.sizes}
                 types={obj.types}
+                key={obj.id}
               />
             ))}
           </div>
