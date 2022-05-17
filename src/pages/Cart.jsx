@@ -91,8 +91,8 @@ const Cart = () => {
         </div>
       </div>
       <div className="cart__items">
-        {items.map((item) => (
-          <CartItem {...item} />
+        {items.map((item, i) => (
+          <CartItem {...item} key={i} />
         ))}
       </div>
       <div className="cart__bottom">

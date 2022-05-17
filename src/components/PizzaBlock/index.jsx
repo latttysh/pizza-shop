@@ -17,10 +17,9 @@ function PizzaBlock({ id, title, price, img, sizes, types }) {
       price,
       img,
       type: typeNames[activeType],
-      size: activeSize,
+      size: sizes[activeSize],
     };
     dispatch(addItem(item));
-    console.log(cartItem);
   };
 
   return (
