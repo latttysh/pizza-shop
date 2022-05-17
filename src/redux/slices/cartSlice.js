@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   totalPrice: 0,
   items: [],
+  totalCount: 0,
 };
 
 const cartSlice = createSlice({
@@ -27,8 +28,9 @@ const cartSlice = createSlice({
         });
       }
       state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price + sum;
+        return obj.price * obj.count + sum;
       }, 0);
+      state.totalCount++;
     },
     removeItem(state, action) {
       state.items = state.items.filter((obj) => obj.id !== action.payload);
