@@ -51,6 +51,7 @@ const Home = () => {
                 img={obj.imageUrl}
                 sizes={obj.sizes}
                 types={obj.types}
+                id={obj.id}
                 key={obj.id}
               />
             ))}
